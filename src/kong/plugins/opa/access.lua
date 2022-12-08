@@ -71,6 +71,16 @@ function _M.execute(conf)
         return kong.response.exit(403, [[{"message":"Access Forbidden"}]])
     end
 
+    if res.result and res.result.headers then
+        for key,value in pairs(res.result.headers) do
+            kong.service.request.add_header(key, value)
+        end
+    end
+
+    if res.result and res.result.headers and res.result.headers.qparams then
+        kong.service.request.set_raw_query(res.result.headers.qparams)
+    end
+
     -- access allowed
     kong.log.debug(interp("Access allowed to ${method} ${path} for user ${subject}", {
         method = input.method,
