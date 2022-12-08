@@ -5,6 +5,12 @@
 ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/wada-ama/kong-plugin-opa)
 ![GitHub](https://img.shields.io/github/license/wada-ama/kong-plugin-opa)
 
+**FORK**
+
+Added header injection and query appending based on variables declared in OPA in order to facilitate input filtering.
+
+
+
 >:warning: **NOTE**
 >
 >The `kong-plugin-opa` has been released to the OPA community and can be found in the OPA [contrib] repository. This repository maps to the [kong_api_authz] subdirectory and its only purpose is **to provide a CI pipeline that run tests and publish the rock on [Luarocks]**.
